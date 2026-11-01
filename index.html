@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#24104f">
+<title>English Speaking Challenge</title>
+<style>
+:root{--bg:#100b25;--panel:#211640;--panel2:#2c1d50;--purple:#8b5cf6;--yellow:#ffd84d;--muted:#b9add4;--good:#35d39a;--bad:#ff7185}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% 0,#392064 0,transparent 35%),linear-gradient(145deg,#100b25,#17102f 65%,#21143c);color:#fff;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}
+.wrap{max-width:1100px;margin:auto;padding:22px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:12px}.logo{width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,var(--yellow),#ff9f43);display:grid;place-items:center;color:#24104f;font-size:25px;font-weight:900;box-shadow:0 8px 24px #0005}.brand h1{font-size:clamp(20px,4vw,29px);margin:0}.brand p{margin:2px 0;color:var(--muted);font-size:13px}.pill{border:1px solid #ffffff25;background:#ffffff0c;border-radius:99px;padding:9px 14px;color:#eee;font-size:13px}
+.hero{margin:25px 0 18px;padding:25px;border:1px solid #ffffff18;border-radius:24px;background:linear-gradient(110deg,#432477aa,#211640ee);display:flex;align-items:center;justify-content:space-between;gap:18px}.hero h2{font-size:clamp(24px,4vw,36px);margin:0 0 7px}.hero p{margin:0;color:#d6cbed}.hero .emoji{font-size:64px}
+.grid{display:grid;grid-template-columns:1.5fr .8fr;gap:18px}.card{background:#21183b;border:1px solid #ffffff17;border-radius:22px;padding:21px;box-shadow:0 12px 35px #0002}.settings{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:17px}.field{flex:1;min-width:150px}.field label{display:block;color:var(--muted);font-size:12px;margin:0 0 7px}select,button{font:inherit}select{width:100%;background:#352654;color:white;border:1px solid #ffffff2b;padding:12px;border-radius:12px;outline:none}
+.kicker{font-size:12px;color:var(--yellow);font-weight:800;letter-spacing:1.3px}.target{font-size:clamp(27px,5vw,42px);font-weight:850;line-height:1.2;margin:16px 0 8px;overflow-wrap:anywhere}.translation{color:var(--muted);margin-bottom:20px}.actions{display:flex;gap:10px;flex-wrap:wrap}.btn{border:0;border-radius:13px;padding:12px 17px;font-weight:750;cursor:pointer;transition:.15s}.btn:active{transform:scale(.97)}.primary{background:var(--yellow);color:#27174b}.secondary{background:#49336e;color:#fff;border:1px solid #ffffff20}.mic{background:linear-gradient(135deg,#9b6aff,#6b43d6);color:#fff}.btn:disabled{opacity:.45;cursor:not-allowed}.status{margin-top:16px;background:#ffffff09;border:1px solid #ffffff14;border-radius:13px;padding:12px;color:#d7cbea;min-height:48px;font-size:14px}.heard{margin-top:14px}.heard strong{display:block;color:var(--muted);font-size:12px;margin-bottom:5px}.heard div{font-size:17px;min-height:28px;overflow-wrap:anywhere}
+.side h3{margin:0 0 13px}.score{font-size:48px;font-weight:900;color:var(--yellow);line-height:1}.score small{font-size:16px;color:var(--muted)}.stat{display:flex;justify-content:space-between;border-bottom:1px solid #ffffff13;padding:12px 0;color:var(--muted)}.stat b{color:#fff}.progress{height:9px;background:#ffffff18;border-radius:20px;overflow:hidden;margin:13px 0 5px}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b5cf6,#ffd84d);transition:width .3s}.feedback{margin-top:14px;padding:13px;border-radius:13px;background:#ffffff0a;font-size:14px;line-height:1.6}.good{color:var(--good)}.bad{color:var(--bad)}.words{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.word{padding:5px 8px;border-radius:8px;background:#ffffff10}.word.ok{background:#1b805b55;color:#7ef0c0}.word.no{background:#9d344655;color:#ff9dad}
+.footer{text-align:center;color:#85799f;font-size:12px;padding:22px 5px}.notice{font-size:12px;color:#b8aacc;line-height:1.6;margin-top:12px}
+@media(max-width:760px){.wrap{padding:14px}.hero{padding:19px}.hero .emoji{font-size:46px}.grid{grid-template-columns:1fr}.card{padding:17px}.top{align-items:flex-start}.side{display:grid;grid-template-columns:1fr 1fr;gap:12px}.side h3{grid-column:1/-1;margin-bottom:0}.side .stats{grid-column:1/-1}}
+</style></head>
+<body><main class="wrap">
+<header class="top"><div class="brand"><div class="logo">A</div><div><h1>English Speaking Challenge</h1><p>ฝึกฟัง • ฝึกพูด • พัฒนาความมั่นใจ</p></div></div><div class="pill">🎙️ SPEAKING GAME</div></header>
+<section class="hero"><div><h2>Speak English with Confidence!</h2><p>ฟังเสียงต้นแบบ แล้วพูดตามเพื่อสะสมคะแนนของคุณ</p></div><div class="emoji">🗣️</div></section>
+<div class="grid">
+<section class="card">
+<div class="settings">
+ <div class="field"><label for="accent">สำเนียงเสียงตัวอย่าง</label><select id="accent"><option value="en-US">🇺🇸 American English</option><option value="en-GB">🇬🇧 British English</option></select></div>
+ <div class="field"><label for="level">ระดับความยาก</label><select id="level"><option value="all">ทุกระดับ</option><option value="easy">Beginner</option><option value="medium">Intermediate</option><option value="hard">Advanced</option></select></div>
+</div>
+<div class="kicker" id="counter">CHALLENGE 01</div>
+<div class="target" id="target">Hello, how are you today?</div>
+<div class="translation" id="translation">สวัสดี วันนี้คุณเป็นอย่างไรบ้าง</div>
+<div class="actions"><button class="btn secondary" id="listen">🔊 ฟังตัวอย่าง</button><button class="btn mic" id="speak">🎤 เริ่มพูด</button><button class="btn secondary" id="next">ข้อต่อไป →</button></div>
+<div class="status" id="status" aria-live="polite">กด “ฟังตัวอย่าง” เพื่อฟังเสียง แล้วกด “เริ่มพูด” เพื่อฝึกออกเสียง</div>
+<div class="heard"><strong>ระบบได้ยินว่า</strong><div id="heard">—</div></div>
+<div class="feedback" id="feedback">💡 เคล็ดลับ: พูดให้ชัดเจน ไม่ต้องรีบ และลองฟังตัวอย่างก่อนพูด</div>
+</section>
+<aside class="card side">
+<h3>🏆 คะแนนของคุณ</h3><div><div class="score" id="score">0<small> / 100</small></div><div class="progress"><span id="bar"></span></div><small style="color:var(--muted)">คะแนนเฉลี่ยจากข้อที่ทำแล้ว</small></div>
+<div class="stats"><div class="stat"><span>ทำแล้ว</span><b id="done">0 ข้อ</b></div><div class="stat"><span>คะแนนสูงสุด</span><b id="best">0%</b></div><div class="stat"><span>สำเนียง</span><b id="accentName">American</b></div></div>
+<div class="notice">คะแนนคำนวณจากความตรงกันของคำที่ระบบรู้จำได้กับประโยคเป้าหมาย ไม่ใช่การวิเคราะห์คุณภาพเสียงหรือสำเนียงแบบผู้เชี่ยวชาญ</div>
+</aside></div>
+<div class="footer">English Speaking Challenge · ใช้งานผ่านเว็บเบราว์เซอร์ที่รองรับไมโครโฟน</div>
+</main>
+<script>
+const bank=[
+{l:"easy",t:"Hello, how are you today?",th:"สวัสดี วันนี้คุณเป็นอย่างไรบ้าง"},
+{l:"easy",t:"My name is Anna.",th:"ฉันชื่อแอนนา"},
+{l:"easy",t:"I would like a glass of water.",th:"ฉันขอน้ำหนึ่งแก้ว"},
+{l:"easy",t:"Thank you very much.",th:"ขอบคุณมาก"},
+{l:"easy",t:"Where is the nearest train station?",th:"สถานีรถไฟที่ใกล้ที่สุดอยู่ที่ไหน"},
+{l:"medium",t:"Could you please speak more slowly?",th:"คุณช่วยพูดช้าลงอีกหน่อยได้ไหม"},
+{l:"medium",t:"I usually practice English every morning.",th:"ปกติฉันฝึกภาษาอังกฤษทุกเช้า"},
+{l:"medium",t:"Would you mind helping me with this?",th:"คุณช่วยฉันเรื่องนี้ได้ไหม"},
+{l:"medium",t:"I am looking forward to meeting you.",th:"ฉันตั้งตารอที่จะได้พบคุณ"},
+{l:"medium",t:"The weather is beautiful this afternoon.",th:"อากาศดีมากในบ่ายวันนี้"},
+{l:"hard",t:"Learning a new language takes patience and practice.",th:"การเรียนภาษาใหม่ต้องใช้ความอดทนและการฝึกฝน"},
+{l:"hard",t:"I believe communication is the key to success.",th:"ฉันเชื่อว่าการสื่อสารคือกุญแจสู่ความสำเร็จ"},
+{l:"hard",t:"Could you recommend a place worth visiting nearby?",th:"คุณช่วยแนะนำสถานที่น่าไปเที่ยวใกล้ ๆ ได้ไหม"},
+{l:"hard",t:"Technology has changed the way we communicate.",th:"เทคโนโลยีเปลี่ยนวิธีที่เราสื่อสารกัน"},
+{l:"hard",t:"The more consistently you practice, the more confident you become.",th:"ยิ่งฝึกฝนอย่างสม่ำเสมอ คุณก็ยิ่งมั่นใจมากขึ้น"}
+];
+let list=[],idx=0,total=0,done=0,best=0,recognition=null,recording=false;
+const $=id=>document.getElementById(id);
+function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
+function loadList(){let lv=$('level').value;list=shuffle(bank.filter(x=>lv==='all'||x.l===lv));idx=0;show()}
+function show(){let q=list[idx%list.length];$('target').textContent=q.t;$('translation').textContent=q.th;$('counter').textContent=`CHALLENGE ${String(idx+1).padStart(2,'0')} · ${q.l.toUpperCase()}`;$('heard').textContent='—';$('feedback').textContent='💡 ฟังตัวอย่างก่อน แล้วลองพูดตามให้ชัดเจน';$('status').textContent='พร้อมฝึกพูด'}
+function accent(){return $('accent').value}
+function getVoice(){let vs=speechSynthesis.getVoices();let a=accent();return vs.find(v=>v.lang===a)||vs.find(v=>v.lang.startsWith(a))||null}
+function listen(){if(!('speechSynthesis'in window)){alert('เบราว์เซอร์นี้ไม่รองรับการเล่นเสียง');return}speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(list[idx%list.length].t);u.lang=accent();let v=getVoice();if(v)u.voice=v;u.rate=.88;speechSynthesis.speak(u);$('status').textContent='กำลังเล่นเสียงตัวอย่าง…'}
+function similarity(expected,spoken){let a=expected.toLowerCase().replace(/[^\w\s']/g,'').split(/\s+/),b=spoken.toLowerCase().replace(/[^\w\s']/g,'').split(/\s+/);let dp=Array.from({length:a.length+1},()=>Array(b.length+1).fill(0));for(let i=0;i<=a.length;i++)dp[i][0]=i;for(let j=0;j<=b.length;j++)dp[0][j]=j;for(let i=1;i<=a.length;i++)for(let j=1;j<=b.length;j++)dp[i][j]=Math.min(dp[i-1][j]+1,dp[i][j-1]+1,dp[i-1][j-1]+(a[i-1]===b[j-1]?0:1));let score=Math.max(0,Math.round((1-dp[a.length][b.length]/Math.max(a.length,b.length,1))*100));return {score,a,b}}
+function assess(text){let q=list[idx%list.length],r=similarity(q.t,text);done++;total+=r.score;best=Math.max(best,r.score);$('score').innerHTML=Math.round(total/done)+'<small> / 100</small>';$('bar').style.width=Math.round(total/done)+'%';$('done').textContent=done+' ข้อ';$('best').textContent=best+'%';$('heard').textContent=text;$('feedback').innerHTML=`<b class="${r.score>=80?'good':r.score>=50?'':'bad'}">${r.score>=80?'ยอดเยี่ยม!':r.score>=50?'ทำได้ดี ลองอีกครั้ง':'ลองฝึกอีกครั้งนะ'}</b> · ความใกล้เคียง ${r.score}%<div class="words">${r.a.map((w,i)=>`<span class="word ${r.b[i]===w?'ok':'no'}">${w}</span>`).join('')}</div><small>สีเขียว = ตรงกับคำเป้าหมาย · สีแดง = คำที่ระบบฟังไม่ตรง/ขาดหาย</small>`;$('status').textContent='ประเมินผลเรียบร้อยแล้ว'}
+function startMic(){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){$('status').textContent='เบราว์เซอร์นี้ไม่รองรับ Speech Recognition แนะนำ Google Chrome หรือ Microsoft Edge';return}if(recording){recognition.stop();return}recognition=new SR();recognition.lang=accent();recognition.continuous=false;recognition.interimResults=true;recording=true;$('speak').textContent='⏹ หยุดบันทึก';$('status').textContent='กำลังฟัง… พูดประโยคให้ครบ';let final='';recognition.onresult=e=>{let interim='';for(let i=e.resultIndex;i<e.results.length;i++){let s=e.results[i][0].transcript;if(e.results[i].isFinal)final+=s;else interim+=s}$('heard').textContent=final||interim};recognition.onerror=e=>{$('status').textContent=e.error==='not-allowed'?'ไม่ได้รับอนุญาตใช้ไมโครโฟน กรุณาอนุญาตในเบราว์เซอร์':`เกิดข้อผิดพลาด: ${e.error}`};recognition.onend=()=>{recording=false;$('speak').textContent='🎤 เริ่มพูด';let text=final.trim()||$('heard').textContent.trim();if(text&&text!=='—')assess(text);else $('status').textContent='ยังไม่ได้ยินคำพูด ลองตรวจไมโครโฟนแล้วพูดอีกครั้ง'};try{recognition.start()}catch(e){recording=false;$('speak').textContent='🎤 เริ่มพูด';$('status').textContent='ไม่สามารถเริ่มไมโครโฟนได้ กรุณาลองใหม่'}}
+$('listen').onclick=listen;$('speak').onclick=startMic;$('next').onclick=()=>{if(recording)recognition.stop();idx++;if(idx>=list.length){loadList();$('status').textContent='เริ่มชุดคำฝึกใหม่แล้ว'}else show()};$('level').onchange=loadList;$('accent').onchange=()=>{$('accentName').textContent=accent()==='en-US'?'American':'British';$('status').textContent='เปลี่ยนสำเนียงเสียงตัวอย่างและการรู้จำแล้ว'};if('speechSynthesis'in window)speechSynthesis.onvoiceschanged=()=>{};loadList();
+</script></body></html>
