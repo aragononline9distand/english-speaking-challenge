@@ -56,7 +56,47 @@ const bank=[
 {l:"hard",t:"Could you recommend a place worth visiting nearby?",th:"คุณช่วยแนะนำสถานที่น่าไปเที่ยวใกล้ ๆ ได้ไหม"},
 {l:"hard",t:"Technology has changed the way we communicate.",th:"เทคโนโลยีเปลี่ยนวิธีที่เราสื่อสารกัน"},
 {l:"hard",t:"The more consistently you practice, the more confident you become.",th:"ยิ่งฝึกฝนอย่างสม่ำเสมอ คุณก็ยิ่งมั่นใจมากขึ้น"}
+
 ];
+// เพิ่มคลังคำถามอีก 200 ข้อ สุ่มโดยไม่ซ้ำจนกว่าจะครบชุด
+const easyTopics=[
+["spicy food","อาหารรสเผ็ด"],["classical music","ดนตรีคลาสสิก"],["science","วิทยาศาสตร์"],["football","ฟุตบอล"],["reading books","การอ่านหนังสือ"],["traveling","การท่องเที่ยว"],["ice cream","ไอศกรีม"],["morning walks","การเดินเล่นตอนเช้า"],["cartoon movies","ภาพยนตร์การ์ตูน"],["learning languages","การเรียนภาษา"]
+];
+const easyPatterns=[
+["Do you like {e}?","คุณชอบ{t}ไหม"],
+["How often do you enjoy {e}?","คุณชอบ{t}บ่อยแค่ไหน"],
+["When do you usually have time for {e}?","ปกติคุณมีเวลาสำหรับ{t}เมื่อไร"],
+["Who do you usually enjoy {e} with?","ปกติคุณชอบ{t}กับใคร"],
+["Where can people enjoy {e}?","ผู้คนสามารถ{t}ได้ที่ไหน"],
+["Is {e} popular in your country?","{t}เป็นที่นิยมในประเทศของคุณไหม"],
+["Why do you think people enjoy {e}?","ทำไมคุณคิดว่าผู้คนจึงชอบ{t}"]
+];
+easyPatterns.forEach(([en,th])=>easyTopics.forEach(([e,t])=>bank.push({l:"easy",t:en.replace("{e}",e),th:th.replace("{t}",t)})));
+const mediumTopics=[
+["cook dinner","ทำอาหารเย็น"],["exercise after work","ออกกำลังกายหลังเลิกงาน"],["study English online","เรียนภาษาอังกฤษออนไลน์"],["save money every month","เก็บเงินทุกเดือน"],["visit your relatives","ไปเยี่ยมญาติ"],["use public transportation","ใช้ขนส่งสาธารณะ"],["plan a weekend trip","วางแผนเที่ยววันหยุดสุดสัปดาห์"],["learn a new skill","เรียนรู้ทักษะใหม่"],["work with a team","ทำงานร่วมกับทีม"],["take care of a pet","ดูแลสัตว์เลี้ยง"]
+];
+const mediumPatterns=[
+["How do you usually {e}?","ปกติคุณ{t}อย่างไร"],
+["What do you enjoy most about {e}?","คุณชอบอะไรมากที่สุดในการ{t}"],
+["How has {e} changed your daily routine?","การ{t}เปลี่ยนกิจวัตรประจำวันของคุณอย่างไร"],
+["What challenges do you face when you {e}?","คุณพบความท้าทายอะไรบ้างเมื่อ{t}"],
+["Can you describe your experience of {e}?","คุณช่วยเล่าประสบการณ์เกี่ยวกับการ{t}ได้ไหม"],
+["What advice would you give someone who wants to {e}?","คุณจะแนะนำอะไรกับคนที่อยาก{t}"],
+["Would you rather {e} alone or with others?","คุณอยาก{t}คนเดียวหรือกับคนอื่นมากกว่ากัน"]
+];
+mediumPatterns.forEach(([en,th])=>mediumTopics.forEach(([e,t])=>bank.push({l:"medium",t:en.replaceAll("{e}",e),th:th.replaceAll("{t}",t)})));
+const hardTopics=[
+["you had to move to another country","คุณต้องย้ายไปอยู่ต่างประเทศ"],["you could change one thing about your school","คุณสามารถเปลี่ยนสิ่งหนึ่งเกี่ยวกับโรงเรียนได้"],["you were responsible for a large project","คุณต้องรับผิดชอบโครงการขนาดใหญ่"],["your community had a serious environmental problem","ชุมชนของคุณมีปัญหาสิ่งแวดล้อมร้ายแรง"],["you had only one day to prepare for an important presentation","คุณมีเวลาเพียงหนึ่งวันเพื่อเตรียมการนำเสนอสำคัญ"],["technology replaced many traditional jobs","เทคโนโลยีเข้ามาแทนที่งานแบบดั้งเดิมหลายอย่าง"],["you disagreed with your closest friend","คุณมีความคิดเห็นไม่ตรงกับเพื่อนสนิท"],["you could create a new public service","คุณสามารถสร้างบริการสาธารณะรูปแบบใหม่"],["people stopped using social media for a month","ผู้คนหยุดใช้สื่อสังคมออนไลน์เป็นเวลาหนึ่งเดือน"],["you were asked to lead a team with different opinions","คุณได้รับมอบหมายให้นำทีมที่มีความคิดเห็นแตกต่างกัน"]
+];
+const hardPatterns=[
+["What would you do if {e}?","คุณจะทำอย่างไรหาก{t}"],
+["What do you think would be the biggest challenge if {e}?","คุณคิดว่าอะไรจะเป็นความท้าทายที่ใหญ่ที่สุดหาก{t}"],
+["How might your priorities change if {e}?","ลำดับความสำคัญของคุณอาจเปลี่ยนไปอย่างไรหาก{t}"],
+["What could society learn if {e}?","สังคมจะได้เรียนรู้อะไรหาก{t}"],
+["How would you explain your decision if {e}?","คุณจะอธิบายการตัดสินใจของคุณอย่างไรหาก{t}"],
+["What long-term effects might occur if {e}?","อาจเกิดผลกระทบระยะยาวอะไรบ้างหาก{t}"]
+];
+hardPatterns.forEach(([en,th])=>hardTopics.forEach(([e,t])=>bank.push({l:"hard",t:en.replace("{e}",e),th:th.replace("{t}",t)})));
 let list=[],idx=0,total=0,done=0,best=0,recognition=null,recording=false;
 const $=id=>document.getElementById(id);
 function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
