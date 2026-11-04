@@ -42,6 +42,20 @@ button.secondary{background:#fff8d9;color:#684a9b;border:1px solid #f0d77b;box-s
 #myStats h2{color:#7953c6}
 @media(max-width:760px){.hero:after{opacity:.35;right:10px}}
 
+
+/* Teacher workspace and report styling */
+#admin{background:linear-gradient(145deg,#fff,#fbf8ff)}
+#admin h3{color:#63439d}
+.admin-toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+.admin-metric{background:linear-gradient(135deg,#f1e8ff,#fff5cf);border:1px solid #e7d9fa;border-radius:16px;padding:14px;min-width:130px;flex:1}
+.admin-metric b{display:block;font-size:25px;color:#6745aa}
+.admin-metric small{color:#806f9f}
+.admin-qrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px dashed #e7dcf4}
+.admin-qrow:last-child{border:0}
+.admin-qactions{display:flex;gap:6px;flex-shrink:0}
+.admin-qactions button{padding:8px 11px;font-size:13px}
+#admin .notice{border-radius:15px}
+@media(max-width:560px){.admin-qrow{align-items:flex-start;flex-direction:column}.admin-qactions{width:100%}.admin-qactions button{flex:1}}
 </style></head>
 <body><main class="wrap">
 <header class="top"><div class="brand"><div class="logo">🧠</div><div><h1>SKR BRAIN CHALLENGE</h1><small>สนุกคิด • ฝึกสมอง • สะสมความสำเร็จ</small></div></div><button class="secondary" id="adminBtn">สำหรับครู</button></header>
@@ -51,7 +65,7 @@ button.secondary{background:#fff8d9;color:#684a9b;border:1px solid #f0d77b;box-s
 <div class="layout section"><div class="panel"><div class="sectionhead"><h3>🏆 กระดานผู้พิชิต</h3></div><div class="tabs"><button class="tab active" data-rank="all">คะแนนรวม</button><button class="tab" data-rank="subject">รายวิชา</button></div><select class="input hidden" id="rankSubject" style="margin-top:12px"></select><div id="leaderboard"></div></div><div class="panel"><h3>🌟 ความสำเร็จของฉัน</h3><div id="myStats" class="muted">เริ่มเล่นเกมเพื่อสะสมคะแนนและเหรียญรางวัล</div></div></div>
 </section>
 <section id="game" class="panel hidden"><div class="row" style="justify-content:space-between"><div><span class="muted" id="gameSubject"></span><h3 id="questionTitle">คำถาม</h3></div><button class="secondary" id="exitGame">ออกจากเกม</button></div><div class="progress"><span id="progress" style="width:0%"></span></div><div class="muted" id="qCount"></div><div id="question"></div><div id="feedback" class="notice hidden"></div><button id="next" class="hidden">ข้อต่อไป</button></section>
-<section id="admin" class="panel hidden"><div class="row" style="justify-content:space-between"><h3>🧑‍🏫 ห้องจัดการสำหรับครู</h3><button class="secondary" id="closeAdmin">กลับหน้าหลัก</button></div><div class="notice">โหมดต้นแบบ: ข้อมูลตัวอย่างจัดเก็บในเบราว์เซอร์นี้เท่านั้น ก่อนเปิดใช้จริงต้องเชื่อม Supabase Auth และฐานข้อมูลพร้อมสิทธิ์ครู</div><div class="section"><h3>เพิ่มคำถามใหม่</h3><div class="row"><select class="input" id="newSubject"></select><select class="input" id="newLevel"><option>ง่าย</option><option>กลาง</option><option>ยาก</option></select></div><input class="input" id="newQuestion" placeholder="พิมพ์คำถาม" style="width:100%;margin-top:10px"><div id="newOptions"></div><input class="input" id="correctIndex" type="number" min="1" max="4" placeholder="หมายเลขคำตอบที่ถูกต้อง (1-4)" style="margin:10px 0"><button id="addQuestion">บันทึกคำถามในเครื่องนี้</button><p class="muted" id="adminMessage"></p></div><div class="section"><h3>คำถามที่มีในระบบ</h3><div id="questionList"></div></div></section>
+<section id="admin" class="panel hidden"><div class="row" style="justify-content:space-between"><h3>🧑‍🏫 ห้องจัดการสำหรับครู</h3><button class="secondary" id="closeAdmin">กลับหน้าหลัก</button></div><div class="notice">โหมดต้นแบบ: ข้อมูลตัวอย่างจัดเก็บในเบราว์เซอร์นี้เท่านั้น ก่อนเปิดใช้จริงต้องเชื่อม Supabase Auth และฐานข้อมูลพร้อมสิทธิ์ครู</div><div class="section"><h3>เพิ่มคำถามใหม่</h3><div class="row"><select class="input" id="newSubject"></select><select class="input" id="newLevel"><option>ง่าย</option><option>กลาง</option><option>ยาก</option></select></div><input class="input" id="newQuestion" placeholder="พิมพ์คำถาม" style="width:100%;margin-top:10px"><div id="newOptions"></div><input class="input" id="correctIndex" type="number" min="1" max="4" placeholder="หมายเลขคำตอบที่ถูกต้อง (1-4)" style="margin:10px 0"><button id="addQuestion">บันทึกคำถามในเครื่องนี้</button><p class="muted" id="adminMessage"></p></div><div class="section"><h3>📊 ภาพรวมคลังข้อสอบและคะแนน</h3><div class="row" id="adminMetrics"></div></div><div class="section"><div class="sectionhead"><h3>📝 จัดการคลังข้อสอบ</h3><input class="input" id="questionSearch" placeholder="ค้นหาคำถาม..." style="min-width:180px"></div><div class="row"><select class="input" id="filterSubject"><option value="">ทุกวิชา</option></select><select class="input" id="filterLevel"><option value="">ทุกระดับ</option><option>ง่าย</option><option>กลาง</option><option>ยาก</option></select></div><div id="questionList"></div></div><div class="section"><h3>🏆 รายงานคะแนนล่าสุด</h3><div id="adminScoreReport"></div></div></section>
 <footer class="footer">SKR Brain Challenge · แพลตฟอร์มฝึกทักษะการคิดสำหรับผู้เรียน</footer></main>
 <script>
 const subjects=[['math','🔢','คณิตศาสตร์','คิดเลขและแก้โจทย์'],['science','🔬','วิทยาศาสตร์','สังเกตและวิเคราะห์'],['english','🔤','ภาษาอังกฤษ','คำศัพท์และภาษา'],['thai','📚','ภาษาไทย','อ่านจับใจความ'],['social','🌏','สังคมศึกษา','โลกและสังคม'],['logic','🧩','ฝึกสมองและตรรกะ','ปริศนาและเหตุผล'],['digital','💻','เทคโนโลยี','ดิจิทัลและความปลอดภัย'],['life','💡','ทักษะชีวิต','การเงินและการตัดสินใจ']];
@@ -84,6 +98,29 @@ function renderStats(){let mine=scores.filter(s=>s.name===name),total=mine.reduc
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 $('adminBtn').onclick=()=>{let p=prompt('ใส่รหัสผ่านครู (โหมดตัวอย่าง: teacher-demo)');if(p==='teacher-demo'){$('home').classList.add('hidden');$('admin').classList.remove('hidden')}else if(p!==null)alert('รหัสผ่านไม่ถูกต้อง')};$('closeAdmin').onclick=()=>{$('admin').classList.add('hidden');$('home').classList.remove('hidden')};
 $('addQuestion').onclick=()=>{let opts=[...document.querySelectorAll('.adminOpt')].map(x=>x.value.trim()),q=$('newQuestion').value.trim(),correct=+$('correctIndex').value-1;if(!q||opts.some(x=>!x)||correct<0||correct>3){$('adminMessage').textContent='กรอกคำถาม ตัวเลือกทั้ง 4 และเฉลยให้ครบ';return}questions.push({id:'custom'+Date.now(),subject:$('newSubject').value,level:$('newLevel').value,text:q,options:opts,correct,explain:'เฉลยโดยครูผู้สร้างคำถาม'});save('skr_questions',questions);$('newQuestion').value='';document.querySelectorAll('.adminOpt').forEach(x=>x.value='');$('correctIndex').value='';$('adminMessage').textContent='เพิ่มคำถามแล้ว (จัดเก็บเฉพาะเบราว์เซอร์นี้)';renderAdminQuestions()};
-function renderAdminQuestions(){$('questionList').innerHTML=questions.map(q=>'<div class="rank"><span>'+esc(label(q.subject))+' · '+esc(q.text)+'</span><button class="secondary" data-del="'+q.id+'">ลบ</button></div>').join('');document.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{questions=questions.filter(q=>q.id!==b.dataset.del);save('skr_questions',questions);renderAdminQuestions()})}
+function renderAdminQuestions(){
+ const fs=$('filterSubject'),fl=$('filterLevel'),search=$('questionSearch');
+ if(fs&&!fs.dataset.ready){fs.innerHTML='<option value="">ทุกวิชา</option>'+subjects.map(s=>'<option value="'+s[0]+'">'+s[2]+'</option>').join('');fs.dataset.ready='1';fs.onchange=renderAdminQuestions;fl.onchange=renderAdminQuestions;search.oninput=renderAdminQuestions}
+ const term=(search?.value||'').trim().toLowerCase(),sub=fs?.value||'',lev=fl?.value||'';
+ const list=questions.filter(q=>(!sub||q.subject===sub)&&(!lev||q.level===lev)&&(!term||q.text.toLowerCase().includes(term)));
+ $('questionList').innerHTML=list.length?list.map(q=>'<div class="admin-qrow"><div><b>'+esc(label(q.subject))+'</b> · <span class="muted">'+esc(q.level)+'</span><div>'+esc(q.text)+'</div><small class="muted">'+q.options.length+' ตัวเลือก</small></div><div class="admin-qactions"><button class="secondary" data-edit="'+q.id+'">แก้ไข</button><button class="secondary" data-del="'+q.id+'">ลบ</button></div></div>').join(''):'<p class="muted">ไม่พบข้อสอบที่ตรงกับเงื่อนไข</p>';
+ document.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{if(!confirm('ยืนยันลบข้อสอบนี้?'))return;questions=questions.filter(q=>q.id!==b.dataset.del);save('skr_questions',questions);renderAdminQuestions();renderAdminMetrics()});
+ document.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>editQuestion(b.dataset.edit));
+ renderAdminMetrics();
+}
+function editQuestion(id){
+ const q=questions.find(x=>x.id===id);if(!q)return;
+ const text=prompt('แก้ไขคำถาม',q.text);if(text===null)return;
+ const opts=q.options.map((v,i)=>prompt('ตัวเลือก '+(i+1),v));if(opts.some(v=>v===null))return;
+ const ans=prompt('หมายเลขคำตอบที่ถูกต้อง (1-4)',String(q.correct+1));if(ans===null)return;
+ const n=Number(ans);if(!text.trim()||opts.some(v=>!v.trim())||!Number.isInteger(n)||n<1||n>4){alert('ข้อมูลไม่ถูกต้อง');return}
+ q.text=text.trim();q.options=opts.map(v=>v.trim());q.correct=n-1;save('skr_questions',questions);renderAdminQuestions();$('adminMessage').textContent='บันทึกการแก้ไขแล้ว';
+}
+function renderAdminMetrics(){
+ if(!$('adminMetrics'))return;
+ const counts=subjects.map(s=>({name:s[2],n:questions.filter(q=>q.subject===s[0]).length}));
+ $('adminMetrics').innerHTML='<div class="admin-metric"><b>'+questions.length+'</b><small>ข้อสอบทั้งหมด</small></div><div class="admin-metric"><b>'+scores.length+'</b><small>รอบการเล่น</small></div><div class="admin-metric"><b>'+new Set(scores.map(s=>s.name)).size+'</b><small>ผู้เล่น</small></div>';
+ $('adminScoreReport').innerHTML=scores.length?scores.slice().reverse().slice(0,10).map(s=>'<div class="rank"><span>'+esc(s.name)+' · '+esc(label(s.subject))+'</span><strong>'+s.score.toLocaleString()+' คะแนน</strong></div>').join(''):'<p class="muted">ยังไม่มีข้อมูลคะแนน</p>';
+}
 init();
 </script></body></html>
