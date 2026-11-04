@@ -6,6 +6,42 @@
 <style>
 :root{--bg:#100d22;--panel:#1b1734;--panel2:#242044;--ink:#f8f7ff;--muted:#b8b3d1;--purple:#9275ff;--yellow:#ffd65a;--cyan:#61dfd1;--line:#393257}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#30235d 0,transparent 42%),var(--bg);color:var(--ink);font-family:system-ui,'Noto Sans Thai',sans-serif;min-height:100vh}button,input,select{font:inherit}button{cursor:pointer;border:0;border-radius:13px;padding:12px 18px;font-weight:750;background:var(--purple);color:white}button.secondary{background:var(--panel2);border:1px solid var(--line)}button:disabled{opacity:.4;cursor:not-allowed}.wrap{max-width:1120px;margin:auto;padding:24px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}.brand{display:flex;align-items:center;gap:12px}.logo{width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,var(--purple),#5a43b9);display:grid;place-items:center;font-size:25px}.brand h1{font-size:20px;margin:0}.brand small,.muted{color:var(--muted)}.hero{padding:30px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(120deg,#28204b,#19152f);margin-bottom:22px}.hero h2{font-size:clamp(27px,5vw,43px);margin:0 0 8px}.hero p{color:var(--muted);margin:0 0 18px}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.input{background:#100d22;color:white;border:1px solid var(--line);border-radius:12px;padding:12px 14px;min-width:220px;outline:none}.input:focus{border-color:var(--purple)}.section{margin:26px 0}.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:14px}.section h3{margin:0;font-size:21px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:13px}.subject{background:var(--panel);border:1px solid var(--line);padding:18px;border-radius:18px;text-align:left;color:var(--ink);transition:.15s}.subject:hover{transform:translateY(-3px);border-color:var(--purple)}.subject .emoji{font-size:31px}.subject b{display:block;margin:9px 0 3px}.subject small{color:var(--muted)}.layout{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:19px;padding:19px}.tabs{display:flex;gap:8px;flex-wrap:wrap}.tab{background:transparent;border:1px solid var(--line);color:var(--muted)}.tab.active{background:var(--purple);color:white;border-color:var(--purple)}.rank{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}.rank:last-child{border:0}.rank strong{color:var(--yellow)}.hidden{display:none!important}.choice{display:block;width:100%;text-align:left;background:var(--panel2);border:1px solid var(--line);margin:9px 0;color:var(--ink)}.choice:hover{border-color:var(--cyan)}.choice.correct{border-color:#38c99a;background:#153d37}.choice.wrong{border-color:#ed7188;background:#482333}.progress{height:8px;background:#393257;border-radius:9px;overflow:hidden;margin:12px 0}.progress span{display:block;height:100%;background:linear-gradient(90deg,var(--purple),var(--cyan))}.notice{padding:12px;border-radius:12px;background:#30284e;color:#ddd7ff;margin:12px 0}.footer{text-align:center;color:var(--muted);padding:30px 0;font-size:13px}@media(max-width:760px){.layout{grid-template-columns:1fr}.wrap{padding:15px}.hero{padding:22px}.top{align-items:flex-start}}
+
+/* Cute lavender + sunshine yellow theme */
+:root{--bg:#f7f2ff;--panel:#fff;--panel2:#f1eaff;--ink:#35245b;--muted:#806f9f;--purple:#8860d8;--yellow:#ffd85c;--cyan:#5fcbb8;--line:#e6daf8}
+body{background:radial-gradient(ellipse at 10% 0%,#eadcff 0,transparent 42%),radial-gradient(ellipse at 95% 12%,#fff1b8 0,transparent 30%),var(--bg);color:var(--ink)}
+.logo{background:linear-gradient(135deg,#a887ee,#7651c8);box-shadow:0 7px 16px #8a68ce40}
+.brand h1{color:#6241a4;letter-spacing:.3px}
+.hero{background:linear-gradient(120deg,#eee4ff,#fff5c9);border:1px solid #e3d3ff;box-shadow:0 12px 28px #7956ad15;position:relative;overflow:hidden}
+.hero:after{content:"✦  ✧  ✦";position:absolute;right:24px;top:18px;color:#c5a8f1;font-size:25px;letter-spacing:9px}
+.hero h2{color:#55358f}
+.hero p{color:#76628f}
+button{background:linear-gradient(135deg,#9069dc,#7650c4);box-shadow:0 4px 0 #6542ad;color:#fff}
+button:hover{filter:brightness(1.04);transform:translateY(-1px)}
+button.secondary{background:#fff8d9;color:#684a9b;border:1px solid #f0d77b;box-shadow:none}
+.input{background:#fff;color:#3e2d61;border:1px solid #dfd1f3}
+.input:focus{border-color:#9873df;box-shadow:0 0 0 3px #9873df20}
+.panel,.subject{background:#fff;border:1px solid #e8def5;box-shadow:0 8px 22px #654a8c0d}
+.subject{border-radius:22px;color:#3c2b61}
+.subject:hover{border-color:#b99aef;box-shadow:0 10px 22px #8e6bc51c}
+.subject .emoji{display:inline-grid;place-items:center;width:58px;height:58px;border-radius:19px;background:linear-gradient(145deg,#f2eaff,#fff4c7);font-size:30px}
+.subject b{color:#55358f}
+.subject small{color:#8a79a5}
+.tab{background:#faf7ff;border:1px solid #e5daf5;color:#806f9f;box-shadow:none}
+.tab.active{background:#8962d4;color:#fff;border-color:#8962d4}
+.rank{border-bottom:1px dashed #e8def5}
+.rank strong{color:#b18100}
+.choice{background:#faf7ff;border:1px solid #e5daf5;color:#46336b;box-shadow:none}
+.choice:hover{background:#f1eaff;border-color:#a98be4}
+.choice.correct{border-color:#5fc6a5;background:#e7fbf2;color:#236c53}
+.choice.wrong{border-color:#e78c9c;background:#fff0f2;color:#9b4053}
+.progress{background:#eee7f7}
+.progress span{background:linear-gradient(90deg,#9069dc,#ffd85c)}
+.notice{background:#fff6d9;color:#70531c;border:1px solid #f2dfa0}
+.footer{color:#9989b2}
+#myStats h2{color:#7953c6}
+@media(max-width:760px){.hero:after{opacity:.35;right:10px}}
+
 </style></head>
 <body><main class="wrap">
 <header class="top"><div class="brand"><div class="logo">🧠</div><div><h1>SKR BRAIN CHALLENGE</h1><small>สนุกคิด • ฝึกสมอง • สะสมความสำเร็จ</small></div></div><button class="secondary" id="adminBtn">สำหรับครู</button></header>
